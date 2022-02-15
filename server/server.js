@@ -26,7 +26,6 @@ mongoose.connect(config.database);
 require('./config/passport')(passport);
 
 var apiRoutes = require('./routes/api')();
-var ticketRoutes = require('./routes/tickets')(passport);
 var feedbackRoutes = require('./routes/feedback')(passport);
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -36,7 +35,6 @@ app.use(function(req, res, next) {
   next();
 });
 app.use('/api', apiRoutes);
-app.use('/ticket', ticketRoutes);
 app.use('/feedback', feedbackRoutes);
 
 app.listen(port, function(err) {

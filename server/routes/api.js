@@ -52,7 +52,6 @@ module.exports = function() {
     });
 
     router.isUserAllowed = function(req, res, next) {
-        console.log('Arrived at isUserAllowed');
         return next();
     };
 
