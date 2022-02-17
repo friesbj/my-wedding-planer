@@ -1,0 +1,21 @@
+version: '3.3'
+
+services:
+    node-server:
+        container_name: node-server
+        build: .
+        env_file: 
+          - ./.env
+        environment:
+            - DB_HOST=db
+        depends_on:
+            - db
+        restart: always
+        ports:
+            - 3000:3000
+    db:
+        container_name: db
+        image: mongo
+        restart: always
+        env_file:
+            - ./.env

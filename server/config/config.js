@@ -1,4 +1,4 @@
 module.exports = {
-    'secret': '<yoursecret>',
-    'database': 'mongodb://localhost:27017/my-wedding-planner'
+    'secret': process.env.SECRET,
+    'database': `mongodb://${process.env.DB_HOST}:27017/my-wedding-planner`
 };
